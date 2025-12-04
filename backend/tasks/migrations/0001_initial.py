@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(blank=True)),
                 ('priority', models.CharField(choices=[('HIGH', 'High Priority'), ('MEDIUM', 'Medium Priority'), ('LOW', 'Low Priority')], default='MEDIUM', max_length=10)),
                 ('status', models.CharField(choices=[('PENDING', 'Pending'), ('IN_PROGRESS', 'In Progress'), ('COMPLETED', 'Completed')], default='PENDING', max_length=20)),
-                ('total_time_minutes', models.IntegerField(default=0)),
+                ('total_time_minutes', models.PositiveIntegerField(default=0)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
             ],
         ),
