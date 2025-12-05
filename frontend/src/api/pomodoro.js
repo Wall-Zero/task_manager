@@ -1,4 +1,4 @@
-const api_url = "http://localhost:8000/api";
+const api_url = "https://task-manager-jr4c.onrender.com/api";
 
 export async function register(taskId, duration){
     const res = await fetch(`${api_url}/pomodoro-sessions/`, {

@@ -1,9 +1,18 @@
-const api_url = "http://localhost:8000/api";
+const api_url = "https://task-manager-jr4c.onrender.com/api";
 
-export async function getTasks(filters = ""){
+export async function getTasks(filters = "") {
+  try {
     const res = await fetch(`${api_url}/tasks/${filters}`);
-    const data = await res.json();
-    return data;
+    console.log("URL ->", `${api_url}/tasks/${filters}`);
+    if (!res.ok) {
+      console.error("Error HTTP:", res.status);
+      return [];
+    }
+    return await res.json();
+  } catch (err) {
+    console.error("Fetch error:", err);
+    return [];
+  }
 }
 
 export async function createTask(task){
